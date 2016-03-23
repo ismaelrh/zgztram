@@ -15,7 +15,7 @@ angular
     'leaflet-directive'
   ])
 
-  .config(function ($routeProvider) {
+  .config(['$routeProvider',function ($routeProvider) {
 
 
 
@@ -30,4 +30,4 @@ angular
 
 
 
-  });
+  }]);
