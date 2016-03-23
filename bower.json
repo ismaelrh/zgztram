@@ -1,0 +1,25 @@
+{
+  "name": "tramapp",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.4.0",
+    "bootstrap": "^3.2.0",
+    "angular-animate": "^1.4.0",
+    "angular-leaflet-directive": "^0.10.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.0",
+    "angular-leaflet-directive": "^0.10.0"
+  },
+  "appPath": "app",
+  "moduleName": "tramappApp",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+}

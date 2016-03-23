@@ -1,0 +1,49 @@
+<!--{{main.stopData.title}}
+<br/>
+Last updated: {{main.stopData.lastUpdated}}
+<div class="row marketing">
+  <div ng-repeat="destino in main.stopData.destinos">{{destino.linea}} {{destino.destino}} {{destino.minutos}}</div>
+</div>
+
+<div class="row marketing">
+  <div ng-repeat="mensaje in main.stopData.mensajes">{{mensaje}}</div>
+</div>
+-->
+
+<div class="flex-container">
+  <div class="flex-column">
+    <leaflet center="main.zaragoza"  geojson="main.geojson"></leaflet>
+  </div>
+  <div class="fixed-column">
+
+    Seleccionado: {{main.selectedStop.title}}
+    <div id="ledDisplay">
+
+      <div class="ledRow" id="firstDestination">{{main.stopData.title}}</div>
+      <br/>
+      <div class="ledRow" id="secondDestination">{{main.stopData.title}}</div>
+      <br/>
+      <div class="ledRow" id="messages">{{main.stopData.title}}</div>
+
+    </div>
+
+    <div id ="stopFilter" class="form-group">
+      <input id="searchinput" ng-model="main.stopFilter.title" class="form-control" type="search" placeholder="Filtrar..." />
+    </div>
+
+    <div id="stopList">
+
+      <button type="button" class="list-group-item"
+              ng-repeat="stop in main.getStops() | filter:main.stopFilter" ng-click="main.setCurrentStop(stop)" class="list-group-item"
+              ng-class="{'active':stop.id == main.selectedStop.id}">{{stop.title}}
+              <span class="badge" ng-if="stop.destinos.length>0">{{stop.destinos[0].minutos}} min.</span>
+              <span class="badge" ng-if="!stop.destinos || stop.destinos.length==0">Sin info</span>
+            <br><span style="float:left;font-size:0.8em;">Sentido: {{stop.direction}}</span>
+      </button>
+
+
+    </div>
+
+  </div>
+</div>
+
