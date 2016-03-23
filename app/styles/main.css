@@ -96,8 +96,9 @@ html,body {
 #ledDisplay{
   background-color:#202020;
   border-style: solid;
-  width:354px;
-  margin-left:10px;
+  width:auto;
+  margin-left:12px;
+  margin-right:12px;
   float:left;
 }
 
@@ -121,9 +122,22 @@ html,body {
 }
 
 
+#stopTitle{
+  margin-left:10px;
+  margin-right:10px;
+  text-align:center;
+  padding: 3px !important;
+  margin-bottom: 10px !important;
+}
+#stopTitle #title{
+  font-size:1.2em;
+}
+#stopTitle #direction{
+  font-size:0.8em;
+}
 #stopList{
   padding:10px;
-  height:90%;
+  height:80%;
   width:100%;
   float:left;
   overflow-y:scroll;
@@ -136,3 +150,5 @@ html,body {
   float:left;
 
 }
+
+

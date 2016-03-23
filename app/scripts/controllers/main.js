@@ -23,7 +23,7 @@ angular.module('tramappApp')
 
     self.tituloParada = "";
 
-    self.selectedStopId = 2102; //Id of selected stop
+    self.selectedStopId = 101; //Id of selected stop
     self.selectedStop = {}; //Selected stop data (Is updated on every data update)
 
 
@@ -114,7 +114,7 @@ angular.module('tramappApp')
     DataService.updateData()
       .then(function (data) {
         self.selectedStop = DataService.getStopById(self.selectedStopId);
-        self.updateLed(self.selectedStop.id);
+        self.updateLed(self.selectedStop);
       });
 
 

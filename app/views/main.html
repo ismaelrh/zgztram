@@ -12,11 +12,12 @@ Last updated: {{main.stopData.lastUpdated}}
 
 <div class="flex-container">
   <div class="flex-column">
-    <leaflet center="main.zaragoza"  geojson="main.geojson"></leaflet>
+    <leaflet center="main.zaragoza" geojson="main.geojson"></leaflet>
   </div>
   <div class="fixed-column">
+    <div class="well well-sm" id="stopTitle"><span id="title">{{main.selectedStop.title}}</span>
+      <br/><span id="direction">Sentido {{main.selectedStop.direction}}</span></div>
 
-    Seleccionado: {{main.selectedStop.title}}
     <div id="ledDisplay">
 
       <div class="ledRow" id="firstDestination">{{main.stopData.title}}</div>
@@ -27,18 +28,21 @@ Last updated: {{main.stopData.lastUpdated}}
 
     </div>
 
-    <div id ="stopFilter" class="form-group">
-      <input id="searchinput" ng-model="main.stopFilter.title" class="form-control" type="search" placeholder="Filtrar..." />
+
+    <div id="stopFilter" class="form-group">
+      <input id="searchinput" ng-model="main.stopFilter.title" class="form-control" type="search"
+             placeholder="Filtrar..."/>
     </div>
 
     <div id="stopList">
 
       <button type="button" class="list-group-item"
-              ng-repeat="stop in main.getStops() | filter:main.stopFilter" ng-click="main.setCurrentStop(stop)" class="list-group-item"
+              ng-repeat="stop in main.getStops() | filter:main.stopFilter" ng-click="main.setCurrentStop(stop)"
+              class="list-group-item"
               ng-class="{'active':stop.id == main.selectedStop.id}">{{stop.title}}
-              <span class="badge" ng-if="stop.destinos.length>0">{{stop.destinos[0].minutos}} min.</span>
-              <span class="badge" ng-if="!stop.destinos || stop.destinos.length==0">Sin info</span>
-            <br><span style="float:left;font-size:0.8em;">Sentido: {{stop.direction}}</span>
+        <span class="badge" ng-if="stop.destinos.length>0">{{stop.destinos[0].minutos}} min.</span>
+        <span class="badge" ng-if="!stop.destinos || stop.destinos.length==0">Sin info</span>
+        <br><span style="float:left;font-size:0.8em;">Sentido: {{stop.direction}}</span>
       </button>
 
 
