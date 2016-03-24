@@ -14,6 +14,8 @@ angular.module('tramappApp')
     self.stops = [];
 
 
+    L.Icon.Default.imagePath = 'leaflet-images';
+
     self.stopFilter = {};
     self.stopData =
     {
@@ -32,6 +34,8 @@ angular.module('tramappApp')
       lng: -0.89,
       zoom: 13
     };
+
+
 
 
     $http.get("data/paradas.json").success(function (data, status) {

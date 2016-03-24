@@ -381,7 +381,8 @@ module.exports = function (grunt) {
             '*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*',
-            'data/*'
+            'data/*',
+            'leaflet-images/*'
           ]
         }, {
           expand: true,
